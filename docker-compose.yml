@@ -1,0 +1,49 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:8.0.22
+    # build: db
+    ports:
+      - "3306:3306"
+    container_name: GroupPayDB
+    restart: always
+    command: ["mysqld", "--default-authentication-plugin=mysql_native_password"]
+    volumes:
+      - .\mysql_data:/var/lib/mysql
+      #  - .\db\:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_DATABASE: gp_db
+      MYSQL_USER : root
+      MYSQL_ROOT_PASSWORD: '123'
+
+
+  backend:
+    build:
+      context: backend
+    # command: sh -c "sleep 5s ; python3 ./api.py"
+    command: uvicorn api:app --host 0.0.0.0
+    container_name: GPBackend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - db
+    links:
+      - db 
+
+  group_pay_frontend:
+    build: ./group_pay_frontend
+    container_name: "GroupPayFrontend"
+    ports:
+      - '3000:3000'
+    stdin_open: true
+    restart: always
+    tty: true
+    depends_on:
+      - backend
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - ./group_pay_frontend:/august

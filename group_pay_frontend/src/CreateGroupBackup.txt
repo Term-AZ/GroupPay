@@ -1,0 +1,136 @@
+import React from "react";
+import './AddPayments.css'
+import {useState} from "react"
+import {Link, Navigate, useNavigate} from 'react-router-dom'
+let nextId=0
+
+const CreateGroup = () =>{
+
+    const [Users, setUsers] = useState([]) //store array of users to be added
+    const [UserInputEmail, setUserInput] = useState({ //stores value of email input box
+        email:""
+    })
+    const [GroupName, setGroupName] = useState({
+        group_name:""
+    })
+    const [SelectedRowEmail, setRowEmail] = useState() //hold state of what row is selected
+
+    const checkUser = async() => {
+        if(UserInputEmail.email ==""){
+            console.log("cancelled")
+            return
+        }
+
+        fetch("http://localhost:8000/check_if_user_exists/",{
+            method:"POST",
+            headers: {"Content-Type":"application/json"},
+            credentials: 'include',
+            body: JSON.stringify(UserInputEmail)
+        }).then(response=>{
+            if(response.ok){
+                return response.json()
+            }
+        }).then(data=> setUsers([...Users, data[0]])).catch(err=> console.log(err))
+    }
+    const deleteUserFromGroup = () =>{
+        setUsers((u)=>u.filter((Users) => Users[1]!=SelectedRowEmail))
+        setRowEmail(null)
+    }
+
+    const createGroup = async() =>{
+        if(GroupName.group_name == ""){
+            return
+        }
+        fetch("http://localhost:8000/create_group/",{
+            method:"POST",
+            headers: {"Content-Type":"application/json"},
+            credentials: 'include',
+            body: JSON.stringify({"group_name": GroupName.group_name, "users": Users})
+        }) .then(response=>{
+            if(response.ok){
+                return response.json()
+            }
+        }).catch(err=> console.log(err))      
+
+    }
+
+    const onTChange = event => {
+        setUserInput({[event.target.name]: event.target.value})
+    }
+    const onGChange = event =>{
+        setGroupName({[event.target.name]: event.target.value})
+    }
+    const onTableClick = event =>{
+        if(SelectedRowEmail == null ){
+            setRowEmail(event.currentTarget.attributes.getNamedItem('name').value)
+            event.currentTarget.style.backgroundColor = "coral"
+            return
+        }
+        try{
+            document.getElementById(SelectedRowEmail).style.backgroundColor = "transparent"
+            setRowEmail(event.currentTarget.attributes.getNamedItem('name').value)
+            event.currentTarget.style.backgroundColor = "coral"
+        }catch (err){
+            console.log("error: " + err)
+        }
+    }
+
+    return(
+        <div className='AddTransactionBackground'>
+            <div className='FormContainer'>
+                <div className='UseExistingGroupContainer'>
+                    <form className='MainForm'>
+                        <label className='TransactionTitle'>
+                            Group Name:
+                        </label>
+                        <input className='TransactionNameInput' name='group_name' onChange={onGChange}>
+                        </input>
+                    </form>
+                </div>
+                <div className='SecondaryContainer'>
+                        <div className='UserInputContainer'>
+                            <p className='AddText'>Add (By Email)</p>
+                            <input className='TransactionNameInput' name='email' onChange={onTChange} ></input>
+                            <button className='UserInputBtn' onClick={checkUser} >Add To Group</button>
+                            <button className='UserInputBtn' onClick={deleteUserFromGroup}>Delete From Group</button>
+                        </div>
+                    </div>
+                <div className='AddPaymentTable'>
+                    <table className='APTable'>
+                        <tbody>
+                            <tr>
+                                <th className='APTableHeader'>
+                                    Name
+                                </th>
+                                <th className='APTableHeader'>
+                                    Email
+                                </th>
+
+                            </tr>
+                            {Users.map(user => 
+                                 <tr className='tRow' name={user[1]} id={user[1]} onClick={onTableClick}>
+                                 {console.log(user)}
+                                 <td className='APTableItemName'>
+                                     {user[0]}
+                                 </td>
+                                 <td className='APTableItemName'>
+                                    {user[1]}
+                                 </td>
+                             </tr>
+                            )}
+                        </tbody>
+                    </table>
+                    <div className='AcceptButtonContainer'>
+                        <button className='AcceptButton2' onClick={createGroup}> Create
+                            {/* <Link to='/add_transaction' className="ReturnToAdd" style={{ textDecoration: 'none'}}>Create
+                            </Link> */}
+                        </button>
+                        <Link to="/my_payments" style={{ textDecoration: 'white'}}><p className='CreateGroupLink'>Return to mainpage</p></Link>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    );
+}
+export default CreateGroup
+

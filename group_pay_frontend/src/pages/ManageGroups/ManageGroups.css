@@ -1,0 +1,148 @@
+.ManageGroupGrid{
+    margin:1%;
+    display:grid;
+    grid-template-columns: 41vw 41vw;
+    grid-template-rows: 45vh 50vh;
+}
+.MyGroupsGridItem{
+    grid-column: 1;
+}
+.PartOfGroupsGridItem{
+    grid-column: 2;
+}
+.GroupInfoGridItem{
+    grid-row:2;
+    grid-column: 1/3;
+}
+.Container{
+    display: grid;
+    grid-template-columns:50vw 30vw;
+    grid-template-rows: 100%;
+    width:100%;
+    height:100%;
+    margin:0%;
+    padding:0%
+}
+.GroupDataContainer{
+    grid-column: 1;
+    height:90%;
+    width: 100%;
+    margin-bottom: 5%;
+}
+.InternalContainer{
+    margin:1%;
+    height:90%;
+    width: 95%
+}
+.ButtonContainer2{
+    height:75%;
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    grid-column: 2;
+    grid-row:1
+}
+.MainButtonContainer{
+    display: flex;
+    flex-direction: row;
+    height:10%;
+    width:100%;
+    justify-content: space-between;
+}
+.AddContainer{
+    display:flex;
+    flex-direction: row;
+    padding-left: 5%;
+
+}
+.InputContainer{
+    padding-left: 5%;
+    height:10%;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+}
+.SubInputContainer{
+    width:100%;
+    height:10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: top;
+}
+Input.AddName{
+    width:80%;
+    height:50%;
+    font-size: 16px;
+}
+Button.MainActionButton{
+    width: 33%;
+    height: 75%;
+    border: none;
+    margin-left: 3%;
+    margin-right:3%;
+    border-radius: 15px;
+    cursor: pointer;
+}
+Button.SubActionButton{
+    width: 40%;
+    height: 75%;
+    border: none;
+    margin-left: 5%;
+    margin-right:5%;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.CreateGroupContainer{
+    display:flex;
+    flex-direction: row;
+    height:10%;
+    justify-content: left;
+}
+Label.GroupDataLabel{
+    width:80%;
+    height:20%;
+    font-size: 24px;
+    margin-bottom: 3%;
+    
+}
+Label.GroupTitleLabel{
+    width:80%;
+    height:20%;
+    font-size: 24px;
+    margin-bottom: 3%;
+}  
+Label.AddUserLabel{
+    font-size: 80%;
+    margin:1%;
+}
+.CreatingGroup{
+    width:100%;
+    height:40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+Input.GroupNameInput{
+    height:100%;
+    width:50%;
+}
+Button.CreatingButton{
+    width:20%;
+    height:100%;
+    margin-bottom:1%;
+    border-radius: 15px;
+    border: none;
+}
+.ErrorLabelContainer{
+    width:100%;
+    height:20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+label.GroupErrorLabel{
+    font-size: 1vw;
+}
+
+

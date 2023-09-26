@@ -1,0 +1,26 @@
+.Container{
+    width:35vw;
+    height:50vh;
+    padding: 5%;
+    padding-top:3%;
+    padding-bottom:3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 36px;
+}
+.ListContainer{
+    padding: 2%;
+    margin-top: 5%;
+    background-color: aliceblue;
+    width: 35vw;
+    height: 40vh;
+}
+th.TableHeader{
+    font-size: 24px;
+    gap:20px;
+    padding-left: 3vw;
+}
+tr.TableStyle{
+    font-size: 46px;
+}

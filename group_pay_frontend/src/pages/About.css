@@ -1,0 +1,66 @@
+img {
+    width:100%;
+    height:70%;
+
+}
+p {
+    color:white;
+}
+
+.AboutBackground{
+    background: linear-gradient(90deg, rgba(27, 14, 14, 0.20) 0%, rgba(155, 129, 129, 0.00) 100%), #20172C;   
+    height:100vh;
+    width:99vw;
+}
+.MainAboutContainer{
+    display: flex;
+    flex-direction: column;
+    height:90%;
+    width:100%;
+    align-items: center;
+}
+
+.AboutSiteContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    height:30%;
+}
+p.AboutText{
+    color:white;
+    width:50%;
+    text-align: center;
+    font-size: 1.8em;
+    padding:3%;
+    font-family: 'Courier New', Courier, monospace;
+}
+.AboutGridContainer{
+    justify-content: center;
+    display: grid;
+    width:100%;
+    height:50%;
+    grid-template-columns: 30% 30% 30%;
+    grid-template-rows: 100%;
+    gap:10px;
+    margin:1%;
+}
+.AboutGridItem{
+    height:100%;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.EnterContainer{
+    width:100%;
+    height:10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+p.SignUpButtonAbout{
+    padding:5%;
+    width:100%;
+}

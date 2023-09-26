@@ -1,0 +1,86 @@
+.MPInfoContainer{
+    background-color: aliceblue;
+    height: 85vh;
+    width: 41vw;
+    grid-row: 2/3;
+    grid-column: 2;
+    margin-left: 1vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+p.PaymentTitle{
+    font-weight:bold;
+    margin:1%;
+    font-size: 3vh;
+}
+p.GraphTitle{
+    margin:0%;
+}
+.PieGraph{
+    width: 41vw;
+    height: 40%;
+    background-color: rgb(90, 155, 155);
+}
+.WhoToPayContainer{
+    display: flex;
+    flex-direction: row;
+    width: 41vw;
+}
+.WhoToPayNameContainer{
+    width:25vw;
+}
+.IsPaidContainer{
+    width:15vw;
+    align-items: center;
+    display:flex;
+    flex-direction: row-reverse;
+}
+p.WhoToPay{
+    padding-left: 2%;
+    font-size: 2vh;
+    margin:2%;
+}
+button.PaidButton{
+    width: 7vw;
+    height: 3vh;
+    font-size: 2vh;;
+    border: none;
+    background-color: gainsboro;
+    cursor: pointer;
+}
+.PayeeContainer{
+    width: 40vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+p.Payees{
+    font-weight: bold;
+    margin: 1%;
+}
+.TransactionTableContainer{
+    width:39vw;
+    margin-top: 3vw;
+    background-color: beige;
+    height:40%;
+    border:2px solid black;
+}
+table.PayeeTable{
+    padding: 8px;
+    text-align: left;
+    width:100%;
+    height:10%;
+}
+th.PayeeTableHeader{
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    width: 50%;
+}
+button.PaymentInfoEditButton{
+    border-radius: 15px;
+    border:none;
+    width:10%;
+    height:3%;
+}

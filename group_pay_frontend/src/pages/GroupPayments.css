@@ -1,0 +1,23 @@
+th.GroupPaymentsTableHeader{
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    width: 50%;
+}
+.GroupPayTableContainer{
+    background-color: aliceblue;
+    height: 80vh;
+    width: 41vw;
+    grid-row: 2;
+    grid-column: 1;
+}
+th.GroupPaymentsTableHeader{
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    width: 30%;;
+}
+td.GPTableItem{
+    padding: 8px;
+    text-align: left;
+}

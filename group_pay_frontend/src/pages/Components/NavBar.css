@@ -1,0 +1,29 @@
+.NavBar{
+    display:flex;
+    justify-content: center;
+}
+.NavContainer{
+    width:100%;
+
+    background-color: black;
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+ul.NavList{
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    gap: 60px;
+
+}
+li.NavListItem{
+    color: white;
+    font-size: 24px; 
+    padding-right: 5vw;
+}
+a:visited { 
+    text-decoration: none; 
+    color: white; 
+   }
+

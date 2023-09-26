@@ -1,0 +1,55 @@
+.MainMyPaymentsContainer{
+    display: flex;
+    flex-direction: row;
+}
+.MainMyPaymentsGrid{
+    margin:1%;
+    display: grid;
+    grid-template-columns: 41vw 41vw;
+    grid-template-rows: 10vh 5vh 80vh;
+}
+p.TitleItem{
+    font-size: 2vw;
+    padding: 3%;
+    margin: 1%;
+    padding-bottom: 1%;
+    grid-column: 1;
+}
+.ButtonContainer{
+    display: flex;
+    flex-direction: row;
+    content: center;
+    gap: 5%;
+    padding: 4%;
+    padding-bottom: 2%;
+    padding-top: 2%;
+    grid-row: 2;
+}
+button.MPButton{
+    height: 2vh;
+    width: 12vw;
+    font-size: 0.8vw;
+    border: none;
+    cursor: pointer;
+}
+.TableContainer{
+    background-color: aliceblue;
+    height: 80vh;
+    width: 40vw;
+    grid-row: 3;
+}
+table.MPTable{
+    border-collapse: collapse;
+    width: 100%;
+}
+th.MPTableHeader{
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+td.MPTableItem{
+    padding: 8px;
+    text-align: left;
+}
+
+
