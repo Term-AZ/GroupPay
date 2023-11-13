@@ -10,7 +10,7 @@ services:
     command: ["mysqld", "--default-authentication-plugin=mysql_native_password"]
     volumes:
       - .\mysql_data:/var/lib/mysql
-      #  - .\db\:/docker-entrypoint-initdb.d
+      - .\db\create.sql:/docker-entrypoint-initdb.d/0_init.sql
     environment:
       MYSQL_DATABASE: gp_db
       MYSQL_USER : root
